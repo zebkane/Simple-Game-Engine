@@ -1,10 +1,14 @@
 {
   "name": "simple-game-engine",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple JS game engine.",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha src/index.test.js -w",
+    "prebuild": "rimraf dist",
+    "build:main": "babel --copy-files --out-dir dist --ignore *.test.js src",
+    "build:umd": "webpack --output-filename index.umd.js --mode development",
+    "build:umd.min": "webpack --output-filename index.umd.min.js --mode production"
   },
   "repository": {
     "type": "git",
@@ -15,10 +19,27 @@
     "game",
     "engine"
   ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "author": "Zeb Kane (https://zebkane.com/)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/zebkane/Simple-Game-Engine/issues"
   },
-  "homepage": "https://github.com/zebkane/Simple-Game-Engine#readme"
+  "homepage": "https://github.com/zebkane/Simple-Game-Engine#readme",
+  "devDependencies": {
+    "@babel/cli": "7.22.9",
+    "@babel/preset-env": "7.22.9",
+    "@babel/register": "7.22.5",
+    "babel-loader": "9.1.3",
+    "babel-plugin-lodash": "^3.3.2",
+    "chai": "4.3.7",
+    "json-loader": "0.5.7",
+    "mocha": "10.2.0",
+    "rimraf": "5.0.1",
+    "webpack": "5.88.1",
+    "webpack-cli": "5.1.4"
+  }
 }

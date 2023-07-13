@@ -1,4 +1,8 @@
+function getName() {
+  return "Johny";
+}
+
 module.exports = {
   all: 10,
-  random: 11,
+  getName: getName,
 };
