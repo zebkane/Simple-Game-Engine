@@ -1,0 +1,24 @@
+{
+  "name": "simple-game-engine",
+  "version": "1.0.0",
+  "description": "A simple JS game engine.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zebkane/Simple-Game-Engine.git"
+  },
+  "keywords": [
+    "simple",
+    "game",
+    "engine"
+  ],
+  "author": "Zeb Kane (https://zebkane.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zebkane/Simple-Game-Engine/issues"
+  },
+  "homepage": "https://github.com/zebkane/Simple-Game-Engine#readme"
+}
