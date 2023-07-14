@@ -68,7 +68,7 @@ engine.Game({
 });
 ```
 
-Here the title property is given a value of ```"A New Game"```. These custom properties can be chained together to add more.
+Here the ```title``` property is given a value of ```"A New Game"```. These custom properties can be chained together to add more.
 
 When using the engine to and createing class instances for your game you will see many property names repeat. These names will be defined below and will always remain the same no matter the class instance.
 
