@@ -64,11 +64,27 @@ engine.Game({
 });
 ```
 
+### Common properties
+
 Here the title property is given a value of ```"A New Game"```. These custom properties can be chained together to add more.
 
-### Game
+When using the engine to and createing class instances for your game you will see many property names repeat. These names will be defined below and will always remain the same no matter the class instance.
+
+The ```pos``` property, representing the position, takes an object that contains the properties ```x``` and ```y``` representing the x and y position of the item.
+
+The ```s``` property, representing size, takes an object that contains the properties ```w``` and ```h``` representing the width and height of the game canvas.
+
+The ```name``` property takes a string and will set the items name to the given value.
+
+The ```color``` property takes a string representing a valid CSS color name, HEX code, or RGB value, and will set the items color to the given value.
+
+The ```img``` property takes a string representing an image path or a URL to an image. It will set the items image to the given value.
+
+### ```engine.Game```
 
 The ```engine.Game``` class is used to create a new game. This is a required step when setting up a project. The following is a new instance of the game class with all possible custom properties.
+
+The ```name``` property takes a string and will set the browser title to the given value. If no value is given it defaults to ```"Simple Game Engine"```.
 
 ```
 const game = new engine.Game({
@@ -81,10 +97,26 @@ const game = new engine.Game({
 });
 ```
 
-The ```s``` property, representing size, takes and object that contains the properties ```w``` and ```h``` representing the width and height of the game canvas. If no value is given it defaults to ```{ w: 500, h: 500 }```.
-
 The ```loop``` is a reqired property that takes a function that will be run at the target frames per second (60). Code placed inside of the given loop function will be run as a part of the game loop. 
 
-The ```name``` property takes a string and will set the browser title to the given value. If no value is given it defaults to ```"Simple Game Engine"```.
+The ```name``` property in this case acts a bit differnt. It takes a string and will set the browser title to the given value. If no value is given it defaults to ```"Simple Game Engine"```.
 
 ## ```engine.Object```
+
+The ```engine.Object``` class is used to create a new object in your game. The following is an instance of an object that is created will all of the possible custom properties.
+
+```
+const player = new engine.Object({
+  name: "player",
+  pos: {
+    x: 50,
+    y: 50,
+  },
+  s: {
+    w: 50,
+    h: 50
+  },
+  color: "black",
+  img: "./player.jpg"
+});
+```
