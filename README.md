@@ -58,15 +58,15 @@ This uses the Simple Game Engine to create a new game. The ```s``` is short for 
 
 Simple Game Engine uses a consistaint method for passing properties to objects. Lets take the ```Game``` class for example. To pass properties to it you will use curly brackets ```{}```. Inside these curly brackets will be the property name followed by the value. For example.
 
-``
-`engine.Game({
+```
+engine.Game({
   title: "A New Game",
 });
 ```
 
 Here the title property is given a value of ```"A New Game"```. These custom properties can be chained together to add more.
 
-### ```engine.Game```
+### Game
 
 The ```engine.Game``` class is used to create a new game. This is a required step when setting up a project. The following is a new instance of the game class with all possible custom properties.
 
