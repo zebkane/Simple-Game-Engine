@@ -5,7 +5,7 @@ export default {
   output: {
     path: join(__dirname, "dist"),
     libraryTarget: "umd",
-    library: "simpleGameEngine",
+    library: "engine",
   },
   devtool: "source-map",
   module: {
