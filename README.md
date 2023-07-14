@@ -74,7 +74,7 @@ When using the engine to and createing class instances for your game you will se
 
 The ```pos``` property, representing the position, takes an object that contains the properties ```x``` and ```y``` representing the x and y position of the item.
 
-The ```s``` property, representing size, takes an object that contains the properties ```w``` and ```h``` representing the width and height of the game canvas.
+The ```s``` property, representing size, takes an object that contains the properties ```w``` and ```h``` representing the width and height of the item.
 
 The ```name``` property takes a string and will set the items name to the given value.
 
