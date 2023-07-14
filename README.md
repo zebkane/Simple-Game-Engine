@@ -56,6 +56,10 @@ This uses the Simple Game Engine to create a new game. The ```s``` is short for 
 
 ## Docs
 
+This is a listing of the ways the engine classes and function can be used.
+
+### Common properties
+
 Simple Game Engine uses a consistaint method for passing properties to objects. Lets take the ```Game``` class for example. To pass properties to it you will use curly brackets ```{}```. Inside these curly brackets will be the property name followed by the value. For example.
 
 ```
@@ -63,8 +67,6 @@ engine.Game({
   title: "A New Game",
 });
 ```
-
-### Common properties
 
 Here the title property is given a value of ```"A New Game"```. These custom properties can be chained together to add more.
 
