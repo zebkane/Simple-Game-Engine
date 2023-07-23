@@ -141,7 +141,7 @@ The ```name``` property defaults to ```"Simple Game Engine"```. In this case act
 
 The ```loop``` is a reqired property that takes a function that will be run at the target frames per second (60). Code placed inside of the given loop function will be run as a part of the game loop. 
 
-The ```Game``` class gives you access to many differnt methods inside of it.
+The ```Game``` class gives you access to many different methods inside of it.
 
 The ```begin()``` method starts the game loop running. Creating the instance of the game object without specifying the loop funtion will cause an error. If this method is not called it will result in your game not showing up.
 
@@ -201,7 +201,7 @@ const player = new engine.Object({
 });
 ```
 
-The ```Object``` class gives you access to many differnt methods inside of it.
+The ```Object``` class gives you access to many different methods inside of it.
 
 The ```add()``` method will add a custom property to the object. It requires a name and a value. The value can be any data type or a function.
 
@@ -238,7 +238,7 @@ The ```engine.Ui``` class will manage all of the HTML canvas user interface elem
 const ui = new engine.Ui();
 ```
 
-The ```Ui``` class gives you access to many differnt methods inside of it.
+The ```Ui``` class gives you access to many different methods inside of it.
 
 The ```bar()``` function will create a new UI bar element. This will have a border with a cirtain amound inside filled in, somthing like a classic health bar. Here is an example with all of the possible properties.
 
