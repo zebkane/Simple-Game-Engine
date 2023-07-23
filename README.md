@@ -5,7 +5,7 @@
 
 ### Project setup
 
-Open up your code editor of choice (VSCode, Sublime Text, Notepad++, etc.) and create a new project folder. Now create an ```index.html``` file and a ```main.js``` file. Copy and past the code below into the ```index.html``` file.
+Open up your code editor of choice (VSCode, Sublime Text, Notepad++, etc.) and create a new project folder. Now create an ```index.html``` file and a ```main.js``` file. Copy and past the code below into the ```index.html``` file and save it.
 
 ```
 <!DOCTYPE html>
