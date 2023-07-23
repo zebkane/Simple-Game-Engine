@@ -2,7 +2,7 @@
 ### An easy to use simple game engine created by Zeb.
 
 ## Getting Started
-***
+
 ### Project setup
 
 Open up your code editor of choice (VSCode, Sublime Text, Notepad++, etc.) and create a new project folder. Now create an ```index.html``` file and a ```main.js``` file. Copy and paste the code below into the ```index.html``` file and save it.
@@ -44,7 +44,7 @@ Lastly run the following command to start the game server.
 This will start a local host server in the current directory. You can then go to a web browser and paste the address into the seach box to access your game.
 
 You're all set and ready to start!
-
+***
 ### Starting the game
 
 Navigate to your ```main.js``` file. The frist thing that always needs to be done is to create the game. To do so add the following code to ```main.js```.
@@ -68,11 +68,11 @@ game.begin();
 ```
 
 This code does two things. The first is that we have created a funtion called ```loop```. This is the funciton that we passed to the game when we said ```loop: loop```. The second thing this code does is start the game with ```game.begin()```.
-
+***
 ## Docs
 
 This is a listing of the ways the engine classes and function can be used.
-
+***
 ### Common properties
 
 Simple Game Engine uses a consistaint method for passing properties to objects. Lets take the ```Game``` class for example. To pass properties to it you will use curly brackets ```{}```. Inside these curly brackets will be the property name followed by the value. For example.
@@ -96,7 +96,7 @@ The ```name``` property takes a string and will set the items name to the given 
 The ```color``` property takes a string representing a valid CSS color name, HEX code, or RGB value, and will set the items color to the given value.
 
 The ```img``` property takes a string representing an image path or a URL to an image. It will set the items image to the given value.
-
+***
 ### ```engine.Game```
 
 The ```engine.Game``` class is used to create a new game. This is a required step when setting up a project. The following is a new instance of the game class with all possible custom properties.
@@ -133,7 +133,7 @@ game.key("a"); // returns true if A key is pressed
 ```
 
 The ```add()``` method 
-
+***
 ## ```engine.Object```
 
 The ```engine.Object``` class is used to create a new object in your game. The following is an instance of an object that is created will all of the possible custom properties.
