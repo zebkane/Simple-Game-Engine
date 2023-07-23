@@ -2,7 +2,7 @@
 ### An easy to use simple game engine created by Zeb.
 
 ## Getting Started
-
+***
 ### Project setup
 
 Open up your code editor of choice (VSCode, Sublime Text, Notepad++, etc.) and create a new project folder. Now create an ```index.html``` file and a ```main.js``` file. Copy and paste the code below into the ```index.html``` file and save it.
