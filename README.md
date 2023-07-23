@@ -121,7 +121,7 @@ img: "../player.png",
 ```
 
 ***
-## ```engine.Game```
+### ```engine.Game```
 
 The ```engine.Game``` class is used to create a new game. This is a required step when setting up a project. The following is a new instance of the game class with all possible custom properties.
 
@@ -181,7 +181,7 @@ game.setFps({
 ```
 
 ***
-## ```engine.Object```
+### ```engine.Object```
 
 The ```engine.Object``` class is used to create a new object in your game. The following is an instance of an object that is created will all of the possible custom properties.
 
@@ -230,7 +230,7 @@ player.update();
 ```
 
 ***
-## ```engine.Ui```
+### ```engine.Ui```
 
 The ```engine.Ui``` class will manage all of the HTML canvas user interface elements. It takes no propertys when created. 
 
