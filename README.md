@@ -15,7 +15,6 @@ Open up your code editor of choice (VSCode, Sublime Text, Notepad++, etc.) and c
     <script type="module" src="main.js"></script>
   </body>
 </html>
-
 ```
 
 This code is mostly the HTML boilerplate code, however, there are two things to note in it. If you look between the ```<body>``` tags you will notice two ```<script>``` tags that bring in two diffent JavaScript files. The first we will create in the next steps and the second is the ```main.js``` file you just created. They are both now linked together!
