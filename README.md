@@ -1,15 +1,11 @@
 # Welcome to the Simple Game Engine
-### An easy-to-use simple game engine created by Zeb.
+### An easy to use simple game engine created by Zeb.
 
 ## Getting Started
 
 ### Project setup
 
-The first thing you will need to do is download VSCode (https://code.visualstudio.com/download) and install it. Open it up and navigate to the extensions tab in the sidebar and search for Live Server by Ritwick Dey. Click Install and navigate back to the Explorer tab. 
-
-Now click File -> Open Folder and create a new folder on your computer and open it up. 
-
-Now create an ```index.html``` file and double-click to open it. In VSCode you can type "!" and then press the tab key to autofill the HTML boilerplate. If you are not using VSCode you will have to write out the boilerplate HTML.
+Open up your code editor of choice (VSCode, Sublime Text, Notepad++, etc.) and create a new project folder. Now create an ```index.html``` file and a ```main.js``` file. Copy and past the code below into the ```index.html``` file.
 
 ```
 <!DOCTYPE html>
@@ -20,47 +16,64 @@ Now create an ```index.html``` file and double-click to open it. In VSCode you c
     <title>Document</title>
   </head>
   <body>
-
+    <script type="module" src="./node_modules/simple-game-engine/dist/index.umd.min.js"></script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>
 
 ```
 
-Include these two script tags in between the body tags of your HTML.
+This code is mostly the HTML boilerplate code, however, there are two things to note in it. If you look between the ```<body>``` tags you will notice two ```<script>``` tags that bring in two diffent JavaScript files. The first we will create in the next steps and the second is the ```main.js``` file you just created. They are both now linked together!
 
-```
-<script type="module" src="https://www.unpkg.com/simple-game-engine@latest/dist/index.umd.js"></script>
-<script type="module" src="main.js"></script>
-```
+Ensure you have Node.js downloaded, here is the download link if you do not (https://nodejs.org/en/download/current).
 
-Create the ```main.js``` file in the same directory as your index.html file.
+Open up terminal or command line either in the code editor or on your computer. Navigate to your project folder and run the following commands. 
 
-Now with your ```index.html``` file selected click Go Live in the bottom right corner. This will serve your ```index.html``` file on a port.
+```npm init -y```
+
+This will initialize a new Node.js project.
+
+```npm i simple-game-engine serve```
+
+This will install two packages to a folder called ```node_modules```. The first is the Simple Game Engine and the second is a server to serve your game files.
+
+Lastly run the following command to start the game server.
+
+```serve .```
+
+This will start a local host server in the current directory. You can then go to a web browser and past the address into the seach box to access your game.
 
 You're all set and ready to start!
 
 ### Starting the game
 
-Navigate to your ```main.js``` file. The first thing that always needs to be done is to create the game. To do so add the following code to ```main.js```.
+Navigate to your ```main.js``` file. The frist thing that always needs to be done is to create the game. To do so add the following code to ```main.js```.
 
 ```
 const game = new engine.Game({
   s: {
     w: 500,
     h: 500,
-  }
+  },
+  loop: loop,
 });
+
+function loop() {
+
+}
+
+game.begin();
 ```
 
-This uses the Simple Game Engine to create a new game. The ```s``` is short for size and the ```w``` and ```h``` are short for width and height. The width and height can be any numbers you would like.
+This uses the Simple Game Engine to create a new game. The ```s``` is short for size and the ```w``` and ```h``` are short for width and height. The width and height can be any numbers you would like. The code put inside the loop function will run every frame.
 
 ## Docs
 
-This is a listing of the ways the engine classes and functions can be used.
+This is a listing of the ways the engine classes and function can be used.
 
 ### Common properties
 
-Simple Game Engine uses a consistaint method for passing properties to objects. Let's take the ```Game``` class for example. To pass properties to it you will use curly brackets ```{}```. Inside these curly brackets will be the property name followed by the value. For example.
+Simple Game Engine uses a consistaint method for passing properties to objects. Lets take the ```Game``` class for example. To pass properties to it you will use curly brackets ```{}```. Inside these curly brackets will be the property name followed by the value. For example.
 
 ```
 engine.Game({
@@ -70,17 +83,17 @@ engine.Game({
 
 Here the ```title``` property is given a value of ```"A New Game"```. These custom properties can be chained together to add more.
 
-When using the engine and creating class instances for your game you will see many property names repeat. These names will be defined below and will always remain the same no matter the class instance.
+When using the engine to and createing class instances for your game you will see many property names repeat. These names will be defined below and will always remain the same no matter the class instance.
 
 The ```pos``` property, representing the position, takes an object that contains the properties ```x``` and ```y``` representing the x and y position of the item.
 
 The ```s``` property, representing size, takes an object that contains the properties ```w``` and ```h``` representing the width and height of the item.
 
-The ```name``` property takes a string and will set the item's name to the given value.
+The ```name``` property takes a string and will set the items name to the given value.
 
-The ```color``` property takes a string representing a valid CSS color name, HEX code, or RGB value, and will set the color of the item to the given value.
+The ```color``` property takes a string representing a valid CSS color name, HEX code, or RGB value, and will set the items color to the given value.
 
-The ```img``` property takes a string representing an image path or a URL to an image. It will set the item's image to the given value.
+The ```img``` property takes a string representing an image path or a URL to an image. It will set the items image to the given value.
 
 ### ```engine.Game```
 
@@ -99,9 +112,25 @@ const game = new engine.Game({
 });
 ```
 
-The ```loop``` is a required property that takes a function that will be run at the target frames per second (60). Code placed inside of the given loop function will be run as a part of the game loop. 
+The ```loop``` is a reqired property that takes a function that will be run at the target frames per second (60). Code placed inside of the given loop function will be run as a part of the game loop. 
 
-The ```name``` property in this case acts a bit differently. It takes a string and will set the browser title to the given value. If no value is given it defaults to ```"Simple Game Engine"```.
+The ```name``` property in this case acts a bit differnt. It takes a string and will set the browser title to the given value. If no value is given it defaults to ```"Simple Game Engine"```.
+
+The ```Game``` class gives you access to many differnt methods inside of it.
+
+The ```begin()``` method starts the game loop running. Creating the instance of the game object without specifying the loop funtion will cause an error.
+
+```
+game.begin();
+```
+
+The ```key()``` method retuns a boolean representing if the given key is pressed. It takes a string of a JS key name as a parameter.
+
+```
+game.key("a"); // returns true if A key is pressed
+```
+
+The ```add()``` method 
 
 ## ```engine.Object```
 

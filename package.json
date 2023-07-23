@@ -1,6 +1,6 @@
 {
   "name": "simple-game-engine",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A simple JS game engine.",
   "main": "dist/index.js",
   "scripts": {
@@ -43,5 +43,8 @@
     "rimraf": "5.0.1",
     "webpack": "5.88.1",
     "webpack-cli": "5.1.4"
+  },
+  "dependencies": {
+    "serve": "14.2.0"
   }
 }

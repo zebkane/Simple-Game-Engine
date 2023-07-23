@@ -42,7 +42,12 @@ function showError(error, fix, verbose) {
 
 // Classes
 class Game {
-  constructor({ s = { w: 500, h: 500 }, loop, name = "Simple Game Engine" }) {
+  constructor({
+    s = { w: 500, h: 500 },
+    loop,
+    name = "Simple Game Engine",
+    bg = "white",
+  }) {
     try {
       this.c;
       this.loop = loop;
@@ -52,6 +57,8 @@ class Game {
       this.s = s;
       this.lastTime;
       this.requiredElapsed;
+      this.bg = bg;
+      this.running = true;
       this.internalSetup(s);
       this.addEventListeners();
     } catch (error) {
@@ -74,11 +81,17 @@ class Game {
 
       canvas.width = s.w;
       canvas.height = s.h;
+      this.w = s.w;
+      this.h = s.h;
 
       canvas.id = "canvas";
 
       document.body.appendChild(canvas);
       document.title = this.name;
+
+      if (document.querySelector("#engine-game-name")) {
+        document.querySelector("#engine-game-name").innerHTML = this.name;
+      }
 
       this.c = document.querySelector("#canvas");
       ctx = canvas.getContext("2d");
@@ -94,7 +107,8 @@ class Game {
   begin() {
     try {
       const loop = (now) => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = this.bg;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         if (!this.lastTime) {
           this.lastTime = now;
@@ -116,7 +130,7 @@ class Game {
           this.lastTime = now;
         }
 
-        requestAnimationFrame(loop);
+        if (this.running) requestAnimationFrame(loop);
       };
 
       loop();
@@ -129,6 +143,10 @@ class Game {
     }
   }
 
+  end() {
+    this.running = false;
+  }
+
   addEventListeners() {
     addEventListener("keydown", (e) => {
       this.keys[e.key.toLowerCase()] = true;
@@ -138,19 +156,15 @@ class Game {
     });
   }
 
-  key(key) {
+  key({ key }) {
     return this.keys[key];
   }
 
-  add(item, value = null) {
-    this[item] = value;
+  add({ name, value = null }) {
+    this[name] = value;
   }
 
-  random(min, max) {
-    return Math.random() * (max - min) + min;
-  }
-
-  setFps(fps) {
+  setFps({ fps }) {
     this.requiredElapsed = 1000 / fps;
   }
 }
@@ -192,8 +206,8 @@ class Object {
     }
   }
 
-  add(item, value = null) {
-    this[item] = value;
+  add({ name, value = null }) {
+    this[name] = value;
   }
 
   move({ x = 0, y = 0 }) {
@@ -477,6 +491,44 @@ class ParticleSystem {
   }
 }
 
+class DomSelector {
+  constructor() {}
+
+  get({ sel }) {
+    return document.querySelector(sel);
+  }
+
+  getAll({ sel }) {
+    return document.querySelectorAll(sel);
+  }
+}
+
+class DomManipulator {
+  constructor() {}
+
+  on({ item, on, run }) {
+    item.addEventListener(on, (e) => {
+      run();
+    });
+  }
+
+  set({ item, prop, value }) {
+    item.style[prop] = value;
+  }
+}
+
+class EngineMath {
+  constructor() {}
+
+  random({ min, max, type = "int" }) {
+    if (type === "int") {
+      return Math.floor(Math.random() * (max - min) + min);
+    } else if (type === "float") {
+      return Math.random() * (max - min) + min;
+    }
+  }
+}
+
 // Functions
 function route({ object1, object2, dir = "to", speed, type = "axis" }) {
   try {
@@ -563,6 +615,9 @@ module.exports = {
   Object: Object,
   ParticleSystem: ParticleSystem,
   Ui: Ui,
+  DomManipulator: DomManipulator,
+  DomSelector: DomSelector,
+  EngineMath: EngineMath,
   route: route,
   collide: collide,
 };
