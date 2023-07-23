@@ -232,7 +232,7 @@ player.update();
 ***
 ### ```engine.Ui```
 
-The ```engine.Ui``` class will manage all of the HTML canvas user interface elements. It takes no propertys when created. 
+The ```engine.Ui``` class will manage all of the HTML canvas user interface elements. It takes no properties when created. 
 
 ```
 const ui = new engine.Ui();
