@@ -51,13 +51,15 @@ Navigate to your ```main.js``` file. The frist thing that always needs to be don
 
 ```
 const game = new engine.Game({
-  s: {
-    w: 500,
-    h: 500,
-  },
   loop: loop,
 });
+```
 
+This uses the Simple Game Engine to create a new game. The ```loop: loop``` is specefying the main game loop function that will run for every frame of the game. The code put inside the loop function will run every frame. So lets create that now!
+
+Add the following to the bottom of your ```main.js``` file.
+
+```
 function loop() {
 
 }
@@ -65,7 +67,7 @@ function loop() {
 game.begin();
 ```
 
-This uses the Simple Game Engine to create a new game. The ```s``` is short for size and the ```w``` and ```h``` are short for width and height. The width and height can be any numbers you would like. The code put inside the loop function will run every frame.
+This code does two things. The first is that we have created a funtion called ```loop```. This is the funciton that we passed to the game when we said ```loop: loop```. The second thing this code does is start the game with ```game.begin()```.
 
 ## Docs
 
