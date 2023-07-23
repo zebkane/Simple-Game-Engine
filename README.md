@@ -5,7 +5,7 @@
 
 ### Project setup
 
-Open up your code editor of choice (VSCode, Sublime Text, Notepad++, etc.) and create a new project folder. Now create an ```index.html``` file and a ```main.js``` file. Copy and past the code below into the ```index.html``` file and save it.
+Open up your code editor of choice (VSCode, Sublime Text, Notepad++, etc.) and create a new project folder. Now create an ```index.html``` file and a ```main.js``` file. Copy and paste the code below into the ```index.html``` file and save it.
 
 ```
 <!DOCTYPE html>
@@ -41,7 +41,7 @@ Lastly run the following command to start the game server.
 
 ```serve .```
 
-This will start a local host server in the current directory. You can then go to a web browser and past the address into the seach box to access your game.
+This will start a local host server in the current directory. You can then go to a web browser and paste the address into the seach box to access your game.
 
 You're all set and ready to start!
 
