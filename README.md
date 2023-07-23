@@ -26,9 +26,9 @@ Open up terminal or command line either in the code editor or on your computer. 
 
 ```npm init -y```
 
-This will initialize a new Node.js project.
+This will initialize a new Node.js project with all the default settings.
 
-```npm i simple-game-engine serve```
+```npm install simple-game-engine serve```
 
 This will install two packages to a folder called ```node_modules```. The first is the Simple Game Engine and the second is a server to serve your game files.
 
