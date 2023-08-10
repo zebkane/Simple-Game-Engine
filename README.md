@@ -27,7 +27,8 @@ Open up terminal or command line either in the code editor or on your computer. 
 
 This will initialize a new Node.js project with all the default settings.
 
-```npm install simple-game-engine serve```
+```npm install```
+```simple-game-engine serve```
 
 This will install two packages to a folder called ```node_modules```. The first is the Simple Game Engine and the second is a server to serve your game files.
 
@@ -36,6 +37,8 @@ Lastly run the following command to start the game server.
 ```serve .```
 
 This will start a local host server in the current directory. You can then go to a web browser and paste the address into the seach box to access your game.
+
+If you are on windows and this returns and error make sure you are in command prompt and not powershell.
 
 You're all set and ready to start!
 ***
@@ -179,6 +182,8 @@ game.setFps({
 });
 ```
 
+If objects in your game are flashing or very lightly colored try setting the fps to 1000.
+
 ***
 ### ```engine.Object```
 
@@ -239,16 +244,18 @@ const ui = new engine.Ui();
 
 The ```Ui``` class gives you access to many different methods inside of it.
 
+The ```update()``` method will need to be called inside the ```loop``` function for the ui to be updated.
+
 The ```bar()``` function will create a new UI bar element. This will have a border with a cirtain amound inside filled in, somthing like a classic health bar. Here is an example with all of the possible properties.
 
 ```
-let healthBar = ui.bar({
+ui.bar({
   name: "Health Bar",
   pos: {
     x: 50,
     y: 50,
   },
-  s = {
+  s: {
     w: 200,
     h: 20
   },
@@ -264,3 +271,152 @@ The ```from``` property specifies the variable of type number that the bar shoul
 The ```min``` property specifies the minimum value the ```from``` variable could be. 
 
 The ```max``` property specifies the maximum value the ```from``` variable could be.
+
+The bar will need to be updated every frame by specifying the name of the bar. Here is an example that would update the bar given above. The name property must match the name of the taget bar.
+
+```
+ui.updateBar({
+  name: "Health Bar",
+  from: player.health
+})
+```
+
+The ```number()``` function will create a new UI number element. This will be simple text that shows a number. Here is an example with all of the possible properties.
+
+```
+ui.bar({
+  name: "Player Score",
+  pos: {
+    x: 50,
+    y: 50,
+  },
+  s = 48,
+  color: "black",
+  min: 0,
+  max: 1000,
+  from: player.score,
+});
+```
+
+The ```from``` property specifies the variable of type number that the ui number should be based off of. In the example a player object would have a custom property called ```score```. 
+
+The ```s``` property specifies the font size of the ui number.
+
+The ```min``` property specifies the minimum value the ```from``` variable could be. 
+
+The ```max``` property specifies the maximum value the ```from``` variable could be.
+
+The number will need to be updated every frame by specifying the name of the number. Here is an example that would update the number given above. The name property must match the name of the taget number
+
+```
+ui.updateNumber({
+  name: "Player Score",
+  from: player.health
+})
+```
+
+
+***
+### ```engine.ParticleSystem```
+
+The ```engine.ParticleSystem``` class is used to create a new particle system. The following is an instance of a particle system that is created will all of the possible custom properties.
+
+```
+const myParticleSystem = new engine.ParticleSystem({
+  pos: {
+    x: 0,
+    y: 0,
+  },
+  s: {
+    w: 10,
+    h: 10
+  },
+  pieces: 10,
+  speed: 5,
+  color: "black",
+  friction: 0.95,
+  dur: 3000,
+  img: "./particle.jpg"
+});
+```
+
+The ```pieces``` property specifies the number of pieces the particle system will have. 
+
+The ```speed``` property specifies the speed at which the pieces will travel from the origin point of the particle system.
+
+The ```friction``` property will set the amound of friction (how fast the pieces will slow down) the pieces will have.
+
+The ```dur``` short for duration will determine how long the pieces will be shown for.
+
+The ```ParticleSystem``` class gives you access to many different methods inside of it.
+
+The ```update()``` method will update the particle system and will need to be called inside the loop function.
+
+
+***
+### ```engine.EngineMath```
+
+The ```engine.EngineMath``` class can be used to do math and generate random numbers.
+
+The ```EngineMath``` class gives you access to the Simple Game Engine math and random methods.
+
+The ```random()``` method is used to generate a random number between two values. Here is an example with all custom properties.
+
+```
+let myNumber = eMath.random({
+  min: 0,
+  max: 1000,
+  type: "int",
+});
+```
+
+The ```min ``` property specifies the minimum return value.
+
+The ```max``` property specifies the maximum return value.
+
+The ```type``` property specifies the type of number returned. This can be ```"int"``` or ```"float"```.
+
+
+***
+### ```engine.DomSelector```
+
+This is comming soon, however it can be used.
+
+
+***
+### ```engine.DomManipulator```
+
+This is comming soon, however it can be used.
+
+
+***
+### General Engine Functions
+
+The following are some general engine functions that can be used to acomplish goals.
+
+```engine.route()``` can be used to route an ```engine.Object``` to another ```engine.Object```. Here is an example with all custiom properties.
+
+```
+engine.route({
+  object1: enemy,
+  dir: "to",
+  object2: player,
+  speed: 2,
+  type: "trig",
+});
+```
+
+This will move the ```enemy``` object torwords the ```player``` object. 
+
+The ```object1``` property specifies the first object. This is the object that will be moving.
+
+The ```object2``` property specifies the second object. This will not be moving.
+
+The ```dir``` property sets the direction of the routing. This can be set to ```to``` which moves ```object1``` torwords ```object2``` or ```away``` which moves ```object1``` away from ```object2```.
+
+The ```speed``` property sets the speed at which ```object1``` will move in the specified direction. 
+
+The ```type``` property specifes the routing that should be used. It can be set to ```"axis"``` to route ```object1``` along axis and 45 deg angles or set to ```"trig"``` to route ```object1``` using trigonometry. 
+
+
+```engine.collide()```
