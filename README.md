@@ -420,3 +420,18 @@ The ```type``` property specifes the routing that should be used. It can be set 
 
 
 ```engine.collide()```
+
+The ```engine.collide()``` function can be used to check for collision between an ```engine.Object``` to another ```engine.Object```. Here is an example with all custiom properties.
+
+```
+engine.collide({
+  object1: player,
+  object2: enemy,
+});
+```
+
+This will return ```true``` is the two objects are colliding and ```false``` if they are not.
+
+The ```object1``` property specifies the first object. 
+
+The ```object2``` property specifies the second object.
